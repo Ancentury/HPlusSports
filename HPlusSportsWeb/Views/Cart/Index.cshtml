@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<section class="cart default">
+    <h2>Your items</h2>
+
+    <ul id="cartList"></ul>
+
+    <div>
+        <button onclick="submitOrder()" class="btn-primary">Place Order</button>
+    </div>
+    <div>
+        <a asp-controller="cart" asp-action="history">Order History</a>
+    </div>
+</section>
+
+@section Scripts {
+<script>
+    var cartItems = getCartItems();
+
+    if (cartItems) {
+        for (var i = 0; i < cartItems.length; i++) {
+            $("#cartList").append("<li>" + cartItems[i].name + "</li>");
+        }
+        
+    }
+
+
+     function submitOrder() {
+         var cartItems = getCartItems();
+         var order = { "Items": cartItems };
+         $.post(window.location, order, function () {
+             clearCart();
+             window.location.href = "/cart/OrderComplete";
+         });
+
+        
+    }
+</script>
+
+}
+

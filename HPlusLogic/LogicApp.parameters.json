@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "logicAppName": {
+      "value": "HPlusOrderLogic"
+    },
+    "azurequeues_1_sharedkey": {
+      "value": "AXdsBeCaeqdPYgTES4ld89b35c0nZrlk6/vkeOJjxMZo8XuD/m1RsMLLMo1FeUmUPddLCTryr/tVW3F/1cxB9A=="
+    },
+    "azurefile_1_accessKey": {
+      "value": "AXdsBeCaeqdPYgTES4ld89b35c0nZrlk6/vkeOJjxMZo8XuD/m1RsMLLMo1FeUmUPddLCTryr/tVW3F/1cxB9A=="
+    }
+  }
+}

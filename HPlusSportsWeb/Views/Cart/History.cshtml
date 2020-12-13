@@ -1,0 +1,49 @@
+﻿@model Newtonsoft.Json.Linq.JArray
+
+@{
+    ViewData["Title"] = "Order History";
+}
+
+<section class="default">
+    <h2>Order History</h2>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Product ID
+                </th>
+                <th>
+                    Product Name
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Size
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+    <td>
+        @item["id"].ToString()
+    </td>
+    <td>
+        @item["name"].ToString()
+    </td>
+    <td>
+        @item["quantity"].ToString()
+    </td>
+    <td>
+        @item["size"].ToString()
+    </td>
+
+</tr>
+}
+        </tbody>
+    </table>
+</section>

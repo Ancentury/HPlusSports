@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Create New Product";
+}
+
+<h2>Add a new product</h2>
+<p class="text-info text-center">@ViewData["ProgressMessage"]</p>
+
+@Html.Partial("CreateClothing_Partial", ViewData["ClothingModel"]);
+
+@Html.Partial("CreateNutritional_Partial", ViewData["NutritionalModel"]);
+

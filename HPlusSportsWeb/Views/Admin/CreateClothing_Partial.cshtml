@@ -1,0 +1,45 @@
+﻿@model HPlusSportsWeb.Models.ClothingProduct
+@using HPlusSportsWeb.Models
+
+<section class="default">
+<h4>ClothingProduct</h4>
+<hr />
+<div class="product-add">
+    
+        <form asp-action="AddClothing" asp-controller="Admin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Sizes" class="control-label"></label>
+                @Html.DropDownListFor(model => model.Sizes, Html.GetEnumSelectList<SizeType>(), new { @class = "form-control", multiple = "true", size="5"})
+                <span asp-validation-for="Sizes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+
+        <form asp-action="NewImage" asp-controller="Admin" enctype="multipart/form-data" method="post">
+            <input type="hidden" name="imageProductId" value="@ViewData["NewProductId"]" />
+            <div class="form-group">
+                <label for="ImageFile" class="control-label">Product Image:</label>
+                <input type="file" id="imageFile" name="imageFile" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Image" class="btn btn-default" />
+            </div>
+        </form>
+</div>
+
+ </section>
+
